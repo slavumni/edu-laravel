@@ -1,0 +1,50 @@
+services:
+  # laravel app service
+  laravel:
+    build:
+      context: .
+      dockerfile: ./docker/laravel/Dockerfile
+    container_name: el-laravel
+    restart: unless-stopped
+    working_dir: /var/www
+    env_file:
+      - ./env_files/db.env
+    volumes:
+      - ./laravel/:/var/wwww/
+      - ./docker/laravel/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - app-network
+
+  # Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: el-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "${WEB_PORT_HTTP}:80"
+      - "${WEB_PORT_SSL}:443"
+    volumes:
+      - ./laravel/:/var/www/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  # database service
+  db:
+    build:
+      context: ./docker/postgresql
+    container_name: el-db
+    restart: unless-stopped
+    env_file:
+      - ./env_files/postgres.env
+    volumes:
+      - ./data/postgresql/:/var/lib/postgresql/data
+      - ./data/logs/postgresql/:/logs
+    networks:
+      - app-network
+
+# docker network
+networks:
+  app-network:
+    driver: bridge
