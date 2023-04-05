@@ -1,0 +1,37 @@
+{
+  "name": "slav.umni/edu-laravel",
+  "type": "project",
+  "description": "Laravel educational",
+  "homepage": "https://github.com/slavumni",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sl Um",
+      "email": "slav.umni@gmail.com",
+      "homepage": "https://github.com/slavumni",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*"
+  },
+  "require-dev": {
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.2.0"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
