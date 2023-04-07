@@ -9,7 +9,7 @@ services:
     env_file:
       - ./env_files/db.env
     volumes:
-      - ./laravel/:/var/wwww/
+      - ./laravel/:/var/www/
       - ./docker/laravel/php.ini:/usr/local/etc/php/php.ini
     networks:
       - app-network
@@ -38,7 +38,7 @@ services:
     env_file:
       - ./env_files/postgres.env
     volumes:
-      - ./data/postgresql/:/var/lib/postgresql/data
+      - ./data/postgresql/:/var/lib/postgresql/data/
       - ./data/logs/postgresql/:/logs
     networks:
       - app-network
