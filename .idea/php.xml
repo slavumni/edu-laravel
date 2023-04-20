@@ -118,6 +118,7 @@
       <path value="$PROJECT_DIR$/laravel/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/laravel/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/laravel/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/laravel/vendor/_laravel_idea" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
