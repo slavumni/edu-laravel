@@ -40,6 +40,8 @@ services:
     volumes:
       - ./data/postgresql/:/var/lib/postgresql/data/
       - ./data/logs/postgresql/:/logs
+    ports:
+      - "${DB_PORT_POSTGRES}:${DB_EXTERNAL_PORT_POSTGRES}"
     networks:
       - app-network
 
