@@ -11,12 +11,12 @@ ENV APP_HOME /var/www
 
 # for install usermod & usergroup
 #RUN echo https://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
-# Install dependencies
+# Install dependencies (postgres: libpq-dev)
 RUN apk update && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
-    libzip-dev zip
+    libpq-dev libzip-dev zip
 
 # Install extensions
-RUN docker-php-ext-install pdo_mysql zip
+RUN docker-php-ext-install pgsql pdo_pgsql zip
 
 # install usermod and usergroup, fix permissions for www-data user
 RUN echo https://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
